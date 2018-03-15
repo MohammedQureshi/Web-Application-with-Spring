@@ -8,19 +8,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
-    @ResponseBody
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String helloWorld() {
-
-        System.out.println("helloooo");
-
         return "homepage";
     }
 
-    @ResponseBody
     @RequestMapping(value = "/about", method = RequestMethod.GET)
     public String about() {
-        return "The about me page.";
+        return "about-me";
     }
 
 }
