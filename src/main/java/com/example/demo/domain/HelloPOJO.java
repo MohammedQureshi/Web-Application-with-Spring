@@ -1,14 +1,15 @@
 package com.example.demo.domain;
 
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class HelloPOJO {
 
+    @Id
     private String name;
 
     private String text;
-
-    private Date created;
 
     public String getName() {
         return name;
@@ -24,6 +25,10 @@ public class HelloPOJO {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public HelloPOJO() {
+
     }
 
     public HelloPOJO(String name, String text) {
