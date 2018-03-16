@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:include="partials/header">
-
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:include="partials/nav"></nav>
     <div class="container">
 
         <h2 class="test-text">Homepage</h2>
+        <p th:text="${pojo.name + pojo.text}"></p>
 
     </div>
 </body>
