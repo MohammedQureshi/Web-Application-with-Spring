@@ -1,45 +1,38 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.HelloPOJO;
+import com.example.demo.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private TestService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String helloWorld(Map<String, Object> model) {
 
         model.put("pojo", new HelloPOJO("James", "Hello Again!!"));
 
-        System.out.println(model.get("key"));
+        HelloPOJO pojo = (HelloPOJO) model.get("pojo");
 
-        Set<String> set = new HashSet<>();
-        set.add("James");
-        set.add("Mohammed");
-        set.add("Ant");
-        set.add("James");
+        System.out.println(pojo.getName() + " - " + pojo.getText());
 
-        for(String s : set) {
-            System.out.println(s);
-        }
-
-        System.out.println("-");
-
-        set.forEach(System.out::println);
+        service.runTestService();
 
         return "homepage";
     }
 
     @RequestMapping(value = "/about", method = RequestMethod.GET)
     public String about() {
+        service.runTestService();
+
         return "about-me";
     }
 
