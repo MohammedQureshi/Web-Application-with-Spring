@@ -21,7 +21,7 @@ public class JUnitTestService {
      * @return return a formatted string
      */
     public List<String> getNames(List<HelloPOJO> pojos) {
-        
+
         List<String> names = new ArrayList<>();
 
         for(HelloPOJO p : pojos) {
