@@ -1,4 +1,4 @@
-package com.iqblade.scrabble.domain;
+package java.com.iqblade.scrabble.domain;
 
 public interface ScrabbleRepository {
 }
