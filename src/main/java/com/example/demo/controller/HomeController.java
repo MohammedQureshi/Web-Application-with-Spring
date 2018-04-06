@@ -15,12 +15,6 @@ import java.util.*;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private TestService service;
-
-    @Autowired
-    private HelloPOJORepository repository;
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String helloWorld(Map<String, Object> model) {
 
@@ -34,8 +28,6 @@ public class HomeController {
 
         return "homepage";
     }
-
-
 
     /**
      * Typical API response method.
