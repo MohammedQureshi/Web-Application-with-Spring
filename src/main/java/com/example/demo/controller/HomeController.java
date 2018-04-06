@@ -23,34 +23,11 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String helloWorld(Map<String, Object> model) {
 
-        model.put("pojo", new HelloPOJO("James", "Hello Again!!"));
-
-        HelloPOJO pojo = (HelloPOJO) model.get("pojo");
-
-        System.out.println(pojo.getName() + " - " + pojo.getText());
-
-        service.runTestService();
-
-        System.out.println("SAVING USER!!!");
-
-        HelloPOJO user = new HelloPOJO(UUID.randomUUID().toString(), "Helloooooooooo");
-        repository.save(user);
-
         return "homepage";
     }
 
     @RequestMapping(value = "/about", method = RequestMethod.GET)
     public String about() {
-
-        HelloPOJO result = repository.findByName("23c87dce-b3f5-4666-8483-36c4eb284c9d");
-
-        System.out.println(result.getName() + " = " + result.getText());
-
-        result.setText("Yo!!!");
-
-        repository.save(result);
-
-        service.runTestService();
 
         return "about-me";
     }
