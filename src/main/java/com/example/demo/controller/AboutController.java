@@ -21,6 +21,7 @@ public class AboutController {
     public String about(Model model) {
 
         //Spring Version
+
         model.addAttribute("pojo", new HelloPOJO("James", "This is my text!!!! ABOUT ME PAGE!"));
 
         return "about-me";
