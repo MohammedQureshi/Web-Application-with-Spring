@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:include="partials/header">
 <body>
 
@@ -7,15 +7,15 @@
 <div class="container">
     <h2>Player Information</h2>
     <h6>Player Name</h6>
-    <p th:text="${player.playerName}"></p>
+    <p th:if="${!player.equals(null)}" th:text="${player.playerName}"></p>
     <h6>Player Wins</h6>
-    <p th:text="${player.playerWins}"></p>
+    <p th:if="${!player.equals(null)}" th:text="${player.playerWins}"></p>
     <h6>Player Loses</h6>
-    <p th:text="${player.playerLoses}"></p>
+    <p th:if="${!player.equals(null)}"  th:text="${player.playerLoses}"></p>
     <h6>Player Draws</h6>
-    <p th:text="${player.playerDraws}"></p>
+    <p th:if="${!player.equals(null)}" th:text="${player.playerDraws}"></p>
     <h6>Player Phone Number</h6>
-    <p th:text="${player.playerTelNumber}"></p>
+    <p th:if="${!player.equals(null)}" th:text="${player.playerTelNumber}"></p>
 
 </div>
 </body>
