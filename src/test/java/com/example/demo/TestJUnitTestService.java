@@ -12,9 +12,6 @@ public class TestJUnitTestService {
     public void testJoinMethod() {
         List<String> stringList = Arrays.asList("Hey", "Jason");
 
-        final JUnitTestService service = new JUnitTestService();
-
-        Assert.assertEquals("Hey,Jason", service.addStringsTogether(stringList));
     }
 
 }
