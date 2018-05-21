@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -17,6 +18,8 @@ public class Game {
     private Long id;
 
     private String gameName;
+
+    private LocalDateTime created;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Player playerOne;

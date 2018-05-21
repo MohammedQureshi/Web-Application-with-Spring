@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Controller
@@ -49,6 +50,7 @@ public class HomeController {
         ben = scrabbleDataService.save(ben);
 
         Game firstGame = Game.builder()
+                .created(LocalDateTime.now())
                 .playerOne(jamesBuilder)
                 .playerTwo(mohammed)
                 .playerOneScore(50)
@@ -59,6 +61,7 @@ public class HomeController {
         scrabbleDataService.save(firstGame);
 
         Game secondGame = Game.builder()
+                .created(LocalDateTime.now())
                 .playerOne(jamesBuilder)
                 .playerTwo(mohammed)
                 .playerOneScore(120)
@@ -69,6 +72,7 @@ public class HomeController {
         scrabbleDataService.save(secondGame);
 
         Game third = Game.builder()
+                .created(LocalDateTime.now())
                 .playerOne(jamesBuilder)
                 .playerTwo(ben)
                 .playerOneScore(55)
