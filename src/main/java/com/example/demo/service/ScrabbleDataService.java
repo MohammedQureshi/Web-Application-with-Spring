@@ -7,6 +7,8 @@ import com.example.demo.domain.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ScrabbleDataService {
 
@@ -20,7 +22,15 @@ public class ScrabbleDataService {
         return playerRepository.save(player);
     }
 
+    public List<Player> findAllPlayers() {
+        return playerRepository.findAll();
+    }
+
     public Game save(Game game) {
         return gameRepository.save(game);
+    }
+
+    public List<Game> findAllGames() {
+        return gameRepository.findAll();
     }
 }

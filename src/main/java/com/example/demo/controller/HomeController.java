@@ -28,6 +28,12 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String helloWorld(Map<String, Object> model) {
 
+        List<Player> totalPlayers = scrabbleDataService.findAllPlayers();
+        List<Game> totalGames = scrabbleDataService.findAllGames();
+
+        log.info("Total games = " + totalGames.size());
+        log.info("Total Players = " + totalPlayers.size());
+
         return "homepage";
     }
 
