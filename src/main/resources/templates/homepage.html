@@ -9,6 +9,16 @@
         <h2 class="test-text">Homepage</h2>
         <p th:text="${pojo.name + pojo.text}"></p>
 
+        <form action="/player" method="GET">
+            First name: <input type="text" name="firstName"><br>
+            Last name: <input type="text" name="lastName"><br>
+            Wins: <input type="number" name="wins"><br>
+            Loses: <input type="number" name="loses"><br>
+            Draws: <input type="number" name="draws"><br>
+            Contact Number: <input type="text" name="contactNum"><br>
+            <input type="submit" value="Submit">
+        </form>
+
     </div>
 </body>
 

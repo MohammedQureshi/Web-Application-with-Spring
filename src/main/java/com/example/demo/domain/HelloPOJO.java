@@ -12,7 +12,6 @@ import javax.persistence.Id;
 @Setter
 @EqualsAndHashCode
 public class HelloPOJO {
-
     @Id
     private String name;
 

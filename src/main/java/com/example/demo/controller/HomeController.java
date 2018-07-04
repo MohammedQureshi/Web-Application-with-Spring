@@ -2,12 +2,15 @@ package com.example.demo.controller;
 
 import com.example.demo.domain.HelloPOJO;
 import com.example.demo.domain.HelloPOJORepository;
+import com.example.demo.domain.playerHolder;
+import com.example.demo.domain.playerHolderRepo;
 import com.example.demo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Map;
 import java.util.UUID;
 
@@ -16,6 +19,9 @@ public class HomeController {
 
     @Autowired
     private TestService service;
+
+    @Autowired
+    private playerHolderRepo playerRepo;
 
     @Autowired
     private HelloPOJORepository repository;
@@ -41,30 +47,10 @@ public class HomeController {
 
 
     @RequestMapping(value = "/player", method = RequestMethod.GET)
-    public String player() {
-        StringBuilder result = new StringBuilder();
-        URL url = new URL(urlToRead);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        String line;
-        while ((line = rd.readLine()) != null) {
-            result.append(line);
-        }
-        rd.close();
-        return result.toString();
-
-
-//        HelloPOJO result = repository.findByName("23c87dce-b3f5-4666-8483-36c4eb284c9d");
-//
-//        System.out.println(result.getName() + " = " + result.getText());
-//
-//        result.setText("Yo!!!");
-//
-//        repository.save(result);
-//
-//        service.runTestService();
-
+    @ResponseBody
+    public String firstName(@RequestParam("firstName") String fName, @RequestParam("lastName") String lName, @RequestParam("wins") int wins, @RequestParam("loses") int loses, @RequestParam("draws") int draws,@RequestParam("contactNum") String telNum ){
+        playerHolder player = new playerHolder(fName, lName, wins, loses, draws, telNum);
+        playerRepo.save(player);
         return "loadRecord";
     }
 
