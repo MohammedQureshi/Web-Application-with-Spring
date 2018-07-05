@@ -47,9 +47,9 @@ public class HomeController {
     This method loads the player record and stores the information.
      */
     @RequestMapping(value = "/loadRecord", method = RequestMethod.GET)
-    public String loadRecord(@RequestParam("firstName") String fName) {
+    public String loadRecord(Map<String, Object> model, @RequestParam("firstName") String fName) {
         playerHolder storedPlayer = playerRepo.findByName(fName);
-        System.out.println(storedPlayer.getLastName());
+        model.put("infoStored", new playerHolder(storedPlayer.getName(), storedPlayer.getLastName(), storedPlayer.getWins(), storedPlayer.getLoses(), storedPlayer.getDraws(), storedPlayer.getTelNum()));
         return "loadRecord";
     }
 
