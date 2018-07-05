@@ -29,29 +29,28 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String helloWorld(Map<String, Object> model) {
 
-        model.put("pojo", new HelloPOJO("James", "Hello Again!!"));
-
-        HelloPOJO pojo = (HelloPOJO) model.get("pojo");
-
-        System.out.println(pojo.getName() + " - " + pojo.getText());
-
-        service.runTestService();
-
-        System.out.println("SAVING USER!!!");
-
-        HelloPOJO user = new HelloPOJO(UUID.randomUUID().toString(), "Helloooooooooo");
-        repository.save(user);
-
         return "homepage";
     }
 
+    /*
+    This page just loads up the web page that contains the form to insert the information into.
+     */
+    @RequestMapping(value = "/createRecord", method = RequestMethod.GET)
+    public String loadRecord(Map<String, Object> model) {
 
-    @RequestMapping(value = "/player", method = RequestMethod.GET)
-    @ResponseBody
-    public String firstName(@RequestParam("firstName") String fName, @RequestParam("lastName") String lName, @RequestParam("wins") int wins, @RequestParam("loses") int loses, @RequestParam("draws") int draws,@RequestParam("contactNum") String telNum ){
+        return "createRecord";
+    }
+
+    /*
+    Method before collects the information from the web form and then stores it within the MySQL database to be accessed later and then will direct you back to
+    the homepage to access other areas of the web page such as going back to the start menu. acceptable
+     */
+
+    @RequestMapping(value = "/saveRecord", method = RequestMethod.GET)
+    public String playerInfo(@RequestParam("firstName") String fName, @RequestParam("lastName") String lName, @RequestParam("wins") int wins, @RequestParam("loses") int loses, @RequestParam("draws") int draws,@RequestParam("contactNum") String telNum ){
         playerHolder player = new playerHolder(fName, lName, wins, loses, draws, telNum);
         playerRepo.save(player);
-        return "loadRecord";
+        return "homepage";
     }
 
 }
