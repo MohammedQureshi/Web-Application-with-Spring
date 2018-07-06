@@ -6,7 +6,7 @@
 </head>
 <body>
     <form action="/saveRecord" method="GET">
-        First name: <input type="text" name="firstName" th:value=${editInfo.name}><br>
+        First name: <input type="text" name="firstName" th:placeholder=${editInfo.name}><br>
         <p th:text="${editInfo.name}"></p>
         Last name: <input type="text" name="lastName" th:value=${editInfo.lastName}><br>
         Wins: <input type="number" name="wins" th:value=${editInfo.wins}><br>
