@@ -42,6 +42,13 @@ public class HomeController {
         return "createRecord";
     }
 
+    @RequestMapping(value = "/editRecord", method = RequestMethod.GET)
+    public String editRecord(Map<String, Object> model, @RequestParam("firstName") String fName) {
+        playerHolder storedPlayer = playerRepo.findByName(fName);
+        model.put("editInfo", new playerHolder(storedPlayer.getName(), storedPlayer.getLastName(), storedPlayer.getWins(), storedPlayer.getLoses(), storedPlayer.getDraws(), storedPlayer.getTelNum()));
+        return "editRecord";
+    }
+
 
     /*
     This method loads the player record and stores the information.

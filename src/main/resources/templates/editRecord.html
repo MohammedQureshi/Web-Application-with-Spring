@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/saveRecord" method="GET">
+        First name: <input type="text" name="firstName" th:value=${editInfo.name}><br>
+        <p th:text="${editInfo.name}"></p>
+        Last name: <input type="text" name="lastName" th:value=${editInfo.lastName}><br>
+        Wins: <input type="number" name="wins" th:value=${editInfo.wins}><br>
+        Loses: <input type="number" name="loses" th:value=${editInfo.loses}><br>
+        Draws: <input type="number" name="draws" th:value=${editInfo.draws}><br>
+        Contact Number: <input type="text" name="contactNum" th:value=${editInfo.telNum}><br>
+        <input type="submit" value="Edit Account">
+    </form>
+</body>
+</html>
