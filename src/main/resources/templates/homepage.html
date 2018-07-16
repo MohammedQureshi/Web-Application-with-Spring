@@ -3,15 +3,19 @@
 <head th:include="partials/header">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:include="partials/nav"></nav>
     <div class="container">
 
         <h2 class="test-text">Homepage</h2>
-        <a href="/createRecord">Create Record</a>
-        <form action="/loadRecord" method="GET">
-            First name: <input type="text" name="firstName"><br>
+
+        <form action="/createRecord">
             <input type="submit" value="Create Record">
         </form>
+
+        <form action="/loadRecord" method="GET">
+            First name: <input type="text" name="firstName"><br>
+            <input type="submit" value="View Record">
+        </form>
+
         <form action="/editRecord" method="GET">
             First name: <input type="text" name="firstName"><br>
             <input type="submit" value="Edit Record">
