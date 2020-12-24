@@ -1,24 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:include="partials/header">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <title> Home Page </title>
 </head>
 <body>
+
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/loadRecord">View Record</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
     <div class="container">
 
-        <h2 class="test-text">Homepage</h2>
+        <h1>Homepage</h1>
+
+        <form action="/createUser">
+            <div class="button"> <input type="submit" value="Create User"></div>
+        </form>
 
         <form action="/createRecord">
-            <input type="submit" value="Create Record">
+            <div class="button"><input type="submit" value="Create Record"></div>
         </form>
 
         <form action="/loadRecord" method="GET">
             First name: <input type="text" name="firstName"><br>
-            <input type="submit" value="View Record">
+            <div class="button"><input type="submit" value="View Record"></div>
         </form>
 
         <form action="/editRecord" method="GET">
             First name: <input type="text" name="firstName"><br>
-            <input type="submit" value="Edit Record">
+            <div class="button"> <input type="submit" value="Edit Record"></div>
         </form>
 
     </div>

@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.HelloPOJORepository;
-import com.example.demo.domain.playerHolder;
-import com.example.demo.domain.playerHolderRepo;
+import com.example.demo.domain.*;
 import com.example.demo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +19,9 @@ public class HomeController {
     private playerHolderRepo playerRepo;
 
     @Autowired
+    private userInformationRepo userRepo;
+
+    @Autowired
     private HelloPOJORepository repository;
 
 
@@ -34,12 +35,25 @@ public class HomeController {
     }
 
     /*
+    Error Page when something goes wrong
+     */
+    @RequestMapping(value = "/error", method = RequestMethod.GET)
+    public String errorPage(Map<String, Object> model){
+        return "error";
+    }
+
+    /*
     This page just loads up the web page that contains the form to insert the information into.
      */
     @RequestMapping(value = "/createRecord", method = RequestMethod.GET)
     public String createRecord(Map<String, Object> model) {
 
         return "createRecord";
+    }
+
+    @RequestMapping(value = "/createUser", method = RequestMethod.GET)
+    public String createUser(Map<String, Object> model){
+        return "createUser";
     }
 
     @RequestMapping(value = "/editRecord", method = RequestMethod.GET)
@@ -58,6 +72,13 @@ public class HomeController {
         playerHolder storedPlayer = playerRepo.findByName(fName);
         model.put("infoStored", new playerHolder(storedPlayer.getName(), storedPlayer.getLastName(), storedPlayer.getWins(), storedPlayer.getLoses(), storedPlayer.getDraws(), storedPlayer.getTelNum()));
         return "loadRecord";
+    }
+
+    @RequestMapping(value = "/saveUser", method = RequestMethod.GET)
+    public String saveInfo(@RequestParam("firstName") String fName, @RequestParam("middleName") String mName, @RequestParam("lastName") String lName, @RequestParam("age") int age, @RequestParam("gender") String gender){
+        userInformation user = new userInformation(fName, mName, lName, age, gender);
+        userRepo.save(user);
+        return "homepage";
     }
 
     /*

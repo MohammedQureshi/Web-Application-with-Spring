@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-    <title> Create Record </title>
+    <title> Create User </title>
 </head>
 <body>
 
-    <form action="/saveRecord" method="GET">
+    <h1>Create User</h1>
+
+    <form action="/saveUser" method="GET">
         First name: <input type="text" name="firstName"><br>
+        Middle name: <input type="text" name="middleName"><br>
         Last name: <input type="text" name="lastName"><br>
-        Wins: <input type="number" name="wins"><br>
-        Loses: <input type="number" name="loses"><br>
-        Draws: <input type="number" name="draws"><br>
-        Contact Number: <input type="text" name="contactNum"><br>
+        Age: <input type="number" name="age"><br>
+        Gender: <input type="text" name="gender"><br>
         <input type="submit" value="Create Account">
     </form>
 

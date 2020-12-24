@@ -1,3 +1,83 @@
-.test-text {
-    color: green;
+body{
+    background-color: #E7E5E5;
+}
+
+p {
+    padding: 2px;
+    font-size: 20px;
+    font-family: Bahnschrift;
+    color: #666;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: #2196F3;
+}
+
+.button input {
+    background-color: #7BE0AD;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.grid-item {
+    background-color: #E7E5E5;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    font-family: Bahnschrift;
+}
+
+form{
+    font-family: Bahnschrift;
+    font-size: 16px;
+    margin: 10px;
+}
+
+br{
+    margin: 10px;
+}
+
+h1{
+    font-size: 30px;
+    font-family: Bahnschrift;
+    color: #666;
+}
+
+ul {
+    list-style-type: none;
+    margin: -10px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E7E5E5;
+}
+
+li {
+    font-family: Bahnschrift;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #AEE5D8;
+}
+
+li a.active {
+    color: white;
+    background-color: #7BE0AD;
 }

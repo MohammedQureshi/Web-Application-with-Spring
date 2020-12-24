@@ -1,17 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Load Record</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
 </head>
 <body>
 
-<p th:text="${infoStored.name}"></p>
-<p th:text="${infoStored.lastName}"></p>
-<p th:text="${infoStored.wins}"></p>
-<p th:text="${infoStored.loses}"></p>
-<p th:text="${infoStored.draws}"></p>
-<p th:text="${infoStored.telNum}"></p>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a class="active" href="/loadRecord">View Record</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
+    <h1> Page Heading </h1>
+    <p> Sand Castles </p>
+    <p th:text="${infoStored.name}"></p>
+    <p th:text="${infoStored.lastName}"></p>
+    <p th:text="${infoStored.wins}"></p>
+    <p th:text="${infoStored.loses}"></p>
+    <p th:text="${infoStored.draws}"></p>
+    <p th:text="${infoStored.telNum}"></p>
+
+    <div class="grid-container">
+        <div class="grid-item">Name</div>
+        <div class="grid-item">Wins</div>
+        <div class="grid-item">Loses</div>
+        <div class="grid-item">Draws</div>
+        <div class="grid-item">Telephone Number</div>
+        <div class="grid-item" th:text="${infoStored.name} + ' ' + ${infoStored.lastName}"></div>
+        <div class="grid-item" th:text="${infoStored.wins}"></div>
+        <div class="grid-item" th:text="${infoStored.loses}"></div>
+        <div class="grid-item" th:text="${infoStored.draws}"></div>
+        <div class="grid-item" th:text="${infoStored.telNum}"></div>
+    </div>
 
 </body>
 </html>
